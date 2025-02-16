@@ -1,0 +1,19 @@
+import sqlite3
+
+# Подключение к базе данных
+conn = sqlite3.connect("food_order_bot/database/database.db")
+cursor = conn.cursor()
+
+# Список таблиц, из которых нужно удалить данные
+tables = ["users", "menu", "orders"]
+
+# Удаление данных из каждой таблицы
+for table in tables:
+    cursor.execute(f"DELETE FROM {table}")
+    print(f"Все данные из таблицы '{table}' удалены.")
+
+# Сохранение изменений
+conn.commit()
+
+# Закрытие соединения
+conn.close()

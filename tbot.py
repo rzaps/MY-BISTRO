@@ -6,7 +6,7 @@ import uuid
 import csv
 
 # Инициализация бота
-bot = telebot.TeleBot("7918967502:AAGbpGfUYbw0M5QphKGF0TR-8jnDYJsjEmw")
+bot = telebot.TeleBot("7661670904:AAHoymDj7C2Xfe7PwwjACCBqCLGvWQkZYXM")
 
 # Глобальная переменная для максимального количества порций
 number_of_seats = 5  # Максимальное количество порций

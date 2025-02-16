@@ -1,0 +1,35 @@
+import telebot
+from config import TOKEN
+from menu import show_menu
+from order import show_order
+from feedback import leave_feedback
+
+# Создаем объект бота
+bot = telebot.TeleBot(TOKEN)
+
+# Обработчик команды /start
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.send_message(message.chat.id, "Добро пожаловать в сервис заказа еды! Используйте /menu для просмотра меню.")
+
+# Обработчик команды /menu
+@bot.message_handler(commands=['menu'])
+def menu(message):
+    show_menu(bot, message)
+
+# Обработчик команды /order
+@bot.message_handler(commands=['order'])
+def order(message):
+    show_order(bot, message)
+
+# Обработчик команды /feedback
+@bot.message_handler(commands=['feedback'])
+def feedback(message):
+    leave_feedback(bot, message)
+
+# Запуск бота
+if __name__ == "__main__":
+    print("Бот запущен...")
+    bot.polling(none_stop=True)
+
+
